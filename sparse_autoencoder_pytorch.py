@@ -16,7 +16,7 @@ class SparseAutoencoder(nn.Module):
         decoded=self.decoder(encoded)
         return encoded,decoded
     def sparsity_loss(self,encoded):
-        return self.sparsity_weight*torch.mean(torch.abs(encoded)) #L1 regulariztaion for sparsity
+        return self.sparsity_weight*torch.mean(torch.abs(encoded)) #L1 regularization for sparsity
     
 transform=transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.5,),(0.5,))])
 train_dataset=datasets.MNIST(root="./data",train=True,download=True,transform=transform)
